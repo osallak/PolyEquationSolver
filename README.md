@@ -1,7 +1,7 @@
-# Computor-v1
+#PolyEquationSolver 
 
 ## Overview
-Computor-v1 is a sophisticated command-line equation solver implemented in Python. It's designed to solve polynomial equations up to the second degree, providing both decimal and fractional solutions when applicable.
+PolyEquationSolver is a sophisticated command-line equation solver implemented in Python. It's designed to solve polynomial equations up to the second degree, providing both decimal and fractional solutions when applicable.
 
 ## Features
 
@@ -32,13 +32,13 @@ Computor-v1 is a sophisticated command-line equation solver implemented in Pytho
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/4yuub/computor-v1.git
+git clone https://github.com/osallak/PolyEquationSolver.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd computor-v1
+cd PolyEquationSolver 
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ cd computor-v1
 Run the program with an equation as a command-line argument:
 
 ```bash
-python3 computor.py "equation"
+python3 main.py "equation"
 ```
 
 ### Example Usage:
@@ -54,13 +54,13 @@ python3 computor.py "equation"
 1. Linear Equation:
 
 ```bash
-python3 computor.py "2 * X + 1 = 0"
+python3 main.py "2 * X + 1 = 0"
 ```
 
 2. Quadratic Equation:
 
 ```bash
-python3 computor.py "2 * X^2 - 4 * X + 2 = 0"
+python3 main.py "2 * X^2 - 4 * X + 2 = 0"
 ```
 
 ## Output Format
