@@ -141,30 +141,6 @@ class EquationSolver:
 
         return solution  # Make sure to return the solution!
 
-    def _get_reduced_form(self, coeffs: dict[int, float]) -> str:
-        terms = []
-        for degree in sorted(coeffs.keys(), reverse=True):
-            coeff = coeffs[degree]
-            if coeff == 0:
-                continue
-                
-            if terms and coeff > 0:
-                terms.append("+ ")
-            elif terms and coeff < 0:
-                terms.append("- ")
-            elif coeff < 0:
-                terms.append("-")
-                
-            term = f"{abs(coeff)}"
-            if degree > 0:
-                term += "X"
-                if degree > 1:
-                    term += f"^{degree}"
-                    
-            terms.append(term)
-            
-        return " ".join(terms) + " = 0"
-
     def _solve_quadratic(self, solution: Solution):
         a = solution.coefficients.get(2, 0)
         b = solution.coefficients.get(1, 0)
@@ -200,7 +176,17 @@ class EquationSolver:
         solution.fractions = ((-b, a),)
 
     def _solve_constant(self, solution: Solution):
-        # This method is not implemented in the original code, so we'll leave it empty
-        pass
-
-SUBSCRIPT_NUMBERS = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+        """
+        Solve constant equations (equations with no variables).
+        Example: 5 = 0 or 0 = 0
+        """
+        constant_term = solution.coefficients.get(0, 0)
+        
+        if constant_term == 0:
+            # Case: 0 = 0
+            solution.count = float('inf')
+            solution.values = None  # All real numbers are solutions
+        else:
+            # Case: c = 0 (where c ≠ 0)
+            solution.count = 0
+            solution.values = None  # No solutions
